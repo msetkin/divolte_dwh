@@ -1,7 +1,7 @@
 
-name: 'jaffle_shop'
+name: 'my_first_project'
 version: '0.1'
-profile: 'jaffle_shop'
+profile: 'my_first_project'
 source-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
