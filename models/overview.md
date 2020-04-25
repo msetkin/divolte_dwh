@@ -1,11 +1,11 @@
 {% docs __overview__ %}
 
-## Data Documentation for Jaffle Shop
+## Data Documentation for Divolte datamart
 
-`jaffle_shop` is a fictional ecommerce store.
+Divolte is a web pixel tracker.
 
-This [dbt](https://www.getdbt.com/) project is for demonstrations and tutorials.
+This [dbt](https://www.getdbt.com/) project is a tutorial sample that takes raw data from Divolte and builds a few simple DWH layers over raw data (staging, DDS, data marts).
 
-The source code can be found [here](https://github.com/clrcrl/jaffle_shop).
+
 
 {% enddocs %}

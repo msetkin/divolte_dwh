@@ -1,0 +1,125 @@
+version: 2
+
+models:
+  - name: h_party
+    description: a hub (data vault) for devices from which a page was opened
+    columns:
+      - name: HK_party_id
+        description: Surrogate key, identifies a device from which a page was opened
+        tests:
+          - not_null
+          - unique
+
+      - name: load_date
+        description: date & time when a record was loaded
+        tests:
+          - not_null
+         
+      - name: record_source
+        description: name of a source from which a record was loaded into a hub
+        tests:
+          - accepted_values:
+              values: ["divolte"]
+
+      - name: partyID
+        description: Natural key of a record in a system
+        tests:
+          - not_null
+          - unique
+
+  - name: h_remote_host
+    description: a hub (data vault) for hosts from which a page was opened
+    columns:
+      - name: HK_remote_host_id
+        description: Surrogate key, identifies a host from which a page was opened
+        tests:
+          - not_null
+          - unique
+
+      - name: load_date
+        description: date & time when a record was loaded
+        tests:
+          - not_null
+         
+      - name: record_source
+        description: name of a source from which a record was loaded into a hub
+        tests:
+          - accepted_values:
+              values: ["divolte"]
+
+      - name: remoteHost
+        description: Natural key of a record in a system
+        tests:
+          - not_null
+          - unique
+
+  - name: h_session
+    description: a hub (data vault) for sessions during which a page was opened
+    columns:
+      - name: HK_session_id
+        description: Surrogate key, identifies a session during which a page was opened
+        tests:
+          - not_null
+          - unique
+
+      - name: load_date
+        description: date & time when a record was loaded
+        tests:
+          - not_null
+         
+      - name: record_source
+        description: name of a source from which a record was loaded into a hub
+        tests:
+          - accepted_values:
+              values: ["divolte"]
+
+      - name: sessionid
+        description: Natural key of a record in a system
+        tests:
+          - not_null
+          - unique
+
+  - name: l_hit
+    description: a link (data vault) for page opens by devices during sessions
+    columns:
+      - name: load_date
+        description: date & time when a record was loaded
+        tests:
+          - not_null
+
+      - name: HK_party_id
+        description: FK to h_party hub
+        tests:
+          - not_null
+  
+      - name: HK_remote_host_id
+        description: FK to h_remote_host hub
+        tests:
+          - not_null
+  
+      - name: HK_session_id
+        description: FK to h_session hub
+        tests:
+          - not_null
+  
+      - name: event_timestamp
+        description: datetime when a page was opened
+        tests:
+          - not_null
+      
+      - name: record_source
+        description: name of a source from which a record was loaded into a hub
+        tests:
+          - accepted_values:
+              values: ["divolte"]
+
+      - name: screenPixelWidth
+        description: screen height of a device 
+        tests:
+          - not_null
+
+      - name: screenPixelHeight
+        description: screen width of a device 
+        tests:
+          - not_null
+
